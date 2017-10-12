@@ -9,7 +9,7 @@ body {
   margin: 0;
 }
 
-.leader-h {
+#header {
   width: 100%;
   background-color: #333;
   color: #fafafa;
@@ -39,7 +39,7 @@ body {
   outline: none;
 }
 
-.btn-green {
+#enter-room-id {
   margin-top: 10px;
   background-color: #33cc00;
   color: #fafafa;
@@ -51,12 +51,53 @@ body {
   cursor: pointer;
 }
 
-.btn-green:hover {
+#enter-room-id:hover {
   background-color: #4DE61A;
 }
 
-.btn-green:active {
+#enter-room-id:active {
   background-color: #009900;
+}
+
+
+#btn-red {
+  margin-top: 10px;
+  background-color: #ff0000;
+  color: #fafafa;
+  font-size: 16px;
+  border: none;
+  padding: 70px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#btn-red:hover {
+  background-color: #ff0000;
+}
+
+#btn-red:active {
+  background-color: #ff0000;
+}
+
+#btn-blue {
+  margin-top: 10px;
+  background-color: #0000ff;
+  color: #fafafa;
+  font-size: 16px;
+  border: none;
+  padding: 70px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#btn-blue:hover {
+  background-color: #0000ff;
+}
+
+#btn-blue:active {
+  background-color: #0000ff;
 }
 
 
