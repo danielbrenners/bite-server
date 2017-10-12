@@ -1,0 +1,12 @@
+{
+  "name": "bite-server",
+  "version": "0.0.0",
+  "description": "Betrayal In The Expanse Server",
+  "main": "app.js",
+  "author": "Daniel Brenners & Peter Slattery",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.6.0",
+    "body-parser": "~1.4.3"
+  }
+}
