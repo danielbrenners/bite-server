@@ -1,8 +1,8 @@
-1. cd bite-server/app/
+1. cd bite-server/
 
 2. npm install
 
-3. node app.js
+3. npm start
 
 4. http://localhost:8080/
 
