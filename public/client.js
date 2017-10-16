@@ -25,12 +25,15 @@ $('#enter-room-id').click(function() {
         $('#ip-target').html(ip_message);
       } else {
         removeSetupUI();
-        setupController();
+        setupControllerUI();
+        initWS();
+        attachEvents();
       }
       
     }
   })
 });
+
 
 function removeSetupUI(){
   // remove room id initialization UI
@@ -38,7 +41,7 @@ function removeSetupUI(){
   $('#ip-target').remove();
 }
 
-function setupController(){ 
+function setupControllerUI(){ 
   // change header
   $('#header').html("Play Game");
 
@@ -47,43 +50,46 @@ function setupController(){
   var blueButton = "<div id='btn-blue'> Send Blue </div>";
   $('#controller-target').prepend(redButton);
   $('#controller-target').prepend(blueButton);
-
-  startWS();
-  attachEvents();
 }
-
 
 function attachEvents(){
   $('#btn-red').click( function(){
-    console.log(ip);
-    //connection.send('red');
+    //console.log(ip);
+    websocket.send('red');
   });
 
   $('#btn-blue').click( function(){
-    console.log(ip);
-    //connection.send('blue');
+    //console.log(ip);    
+    websocket.send('blue');
   });
 }
 
+//var wsUri = "ws://echo.websocket.org/";
+var wsUri = "ws://echo.websocket.org/";
+var output;
 
-function startWS(){
-  connection = new WebSocket('ws://localhost:9000', ['soap', 'xmpp']);
-  connection.onopen = function (){
-    connection.send("Ping");
-  };
-
-  connection.onerror = function (error) {
-    console.log('WebSocket Error ' + error);
-  };
-
-  connection.onmessage = function (e) {
-    console.log('Server ' + e.data);
-  };
+function initWS()
+{
+  output = document.getElementById("output");
+  connectWebSocket();
 }
 
-
-
-
+function connectWebSocket()
+{
+  websocket = new WebSocket(wsUri);
+  websocket.onopen = function(evt) { 
+    console.log('connected');
+  };
+  websocket.onclose = function(evt) {
+    console.log('disconnected');
+  };
+  websocket.onmessage = function(evt) { 
+    console.log(evt.data);
+  };
+  websocket.onerror = function(evt) { 
+    console.log(evt.data);
+  };
+}
 
 
 
